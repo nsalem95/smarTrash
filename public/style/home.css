@@ -1,0 +1,373 @@
+*,
+::after,
+::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "open Source Sans";
+	background-color: #ddd;
+	font-size: 15px;
+	color: #333;
+    background-image: url(../img/bg.jpg);
+    background-attachment: fixed;
+}
+.header{
+        display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.header > span {
+    display: block;
+    width: 960px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 30px;
+    font-size: 24px;
+    font-family: "open Source Sans";
+    font-weight: 700;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align: center
+}
+.header > span > i{
+    font-size: 20px;
+    padding: 0px 30px;
+    color: #b8021b
+}
+
+h1 span {
+    color: #b8021b;
+
+}
+h1:before{
+    
+}
+
+a {    
+    font-size: 1.4rem;
+    background-color:transparent;
+    -webkit-text-decoration-skip:objects
+}
+
+
+a {
+	text-decoration:none;
+	color:#454545;
+	-webkit-transition:color .1s ease-out;
+	transition:color .1s ease-out;
+	cursor:pointer
+}
+a:hover{
+	text-decoration:underline;
+	color:#000;
+}
+a:focus{
+	outline:1px dotted #0088cf;
+	outline-offset:-1px
+}
+
+h1{
+	font-size: 8rem;
+	padding-top: 70px;
+    line-height: 1.3;
+    font-weight: 900;
+    text-align: center;
+
+    margin-bottom: -12px;
+}
+
+.PageHire-topFreelancers{
+    width:100%;
+    margin-top:35px;
+}
+.PageHire-topFreelancers:last-child{
+    margin-bottom:50px;
+}
+@media (max-width:1176px){
+    .PageHire-topFreelancers{
+        float:none;
+        width:100%;
+        max-width:640px;
+        margin:0 auto;
+        margin-top:24px;
+    }
+}
+@media (max-width:640px){
+    .PageHire-topFreelancers{
+        padding:12px 24px;
+    }
+}
+
+.PageHire-topFreelancers-title{
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+    font-size: 1.6em;
+    font-family: Ropa;
+    text-transform: uppercase;
+    /* width: 100%; */
+    color: #b8021b;
+    font-weight: 900;
+    text-align: center;
+    padding: 5px 5px 0px 20px;
+    /* border-radius: 5px; */
+    border-bottom: 1px solid #191b1d;
+}
+
+.PageHire-topFreelancers-showMore{
+    display:block;
+    font-size:13px;
+    font-size:.8125rem;
+    line-height:1.4;
+    font-weight:400;
+    text-align:right;
+}
+.PageHire-freelancers{
+    margin:0;
+    padding:0;
+    list-style:none;
+    counter-reset: li;
+}
+.PageHire-freelancers-item{
+    margin-bottom:10px;
+    box-shadow:0 0 3px 0 rgba(0,0,0,.08),
+               0 2px 3px 0 rgba(0,0,0,.12);
+    border-radius:4px;
+    overflow: hidden;
+    background:#fff;
+    padding: 0
+    
+}
+.PageHire-freelancers-item .item-number{
+    width: 64px;
+    height: 64px;
+    /* background-color: cornflowerblue; */
+    /* color: #fff; */
+    /* font-family: Nexa; */
+    text-align: center;
+    /* font-weight: 300; */
+    padding-top: 14px;
+    float: left;
+    font-family: Roboto;
+}
+.PageHire-freelancers-item .item-number:before {
+    font-size: 1.8em;
+    counter-increment: li;
+    content: counter(li);   
+}
+.PageHire-freelancers-item .item{
+    height: auto;
+    padding:0
+} 
+
+.PageHire-freelancers-item .item div{
+    float: left;
+}
+.PageHire-freelancers-item .item .item-title{
+    display: inline-block;
+    font-weight: 700;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    width: 500px;
+    font-size: 1.2em;
+    padding-left: 14px;
+    padding-bottom: 10px;
+} 
+
+.PageHire-freelancers .filteration{
+    margin: 25px 0 50px ;
+}
+
+.PageHire-freelancers .filteration > .item > .filter{
+    padding-left: 0;
+    padding-right: 0;
+    background-color: darkgreen;
+    color: white
+}
+
+.PageHire-freelancers .filteration > .item > .filter > span{
+    padding-left: 30px;
+    line-height: 65px;
+    font-size: 1.4em;
+    font-family: sans-serif;
+}
+.PageHire-freelancers-item .item .item-title > a{
+    font-size: 1.2em;
+}
+.PageHire-freelancers-item .item .item-title > a:hover{
+    text-decoration: none;
+    color: #b8021b;
+}
+
+.PageHire-freelancers-item .item .item-title > a > i{
+    margin-left: 25px;
+}
+
+.PageHire-freelancers-item .item .company{
+    padding: 15px 0 12px 10px;
+    width: 200px;
+    border-left: 1px solid rgba(0,0,0,0.1);
+}
+.PageHire-freelancers-item .item .duration{
+    padding: 15px 0 12px 10px;
+    width: 120px;
+    border-left: 1px solid rgba(0,0,0,0.1);
+}
+/*.PageHire-freelancers-item .item .company:hover{
+    background-color: dodgerblue
+}*/
+.PageHire-freelancers-item .item .item-title span {
+    font-weight: normal;
+    margin-top: 12px;
+    margin-bottom: -5px;
+    display: block;
+    font-size: 12px;
+}
+.PageHire-freelancers-item .item .company span:nth-child(1) {
+    font-family: Roboto-Light;
+    margin-bottom: -5px;
+    display: block;
+    font-size: 12px;
+}
+.PageHire-freelancers-item .item .company span:nth-child(2),
+.PageHire-freelancers-item .item .duration span:nth-child(2){
+    font-family: Roboto;
+    font-size: 18px;
+    display: block;
+}
+.PageHire-freelancers-item .item .view {
+    float: right;
+}
+.PageHire-freelancers-item .item .view a {
+    font-size: 22px;
+    font-family: Roboto;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 16.5px 66px;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    background-color: #8fc6ff;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.PageHire-freelancers-item .item .view a::after{
+    position: absolute;
+    z-index: 1;
+    content: "\f105";
+    padding-top: 4px;
+    opacity: 0;
+    padding-left: 0;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.PageHire-freelancers-item .item .view a:hover {
+    background-color: #b8021b;
+    color: #fff;
+}
+.PageHire-freelancers-item .item .view a:hover::after{
+    opacity: 1;
+    padding-left: 25px;
+}
+
+
+.PageHire-freelancers-item .points{
+        border-left: 1px solid rgba(0,0,0,0.1);
+    padding:0
+    /*width: 38%;*/
+    
+}
+
+.PageHire-freelancers-item .points div{
+    text-align: center;
+    /*width: 33%;*/
+    padding: 8px 10px 8px 10px;
+}
+
+.PageHire-freelancers-item .points div:nth-child(2){
+    background-color: antiquewhite
+}
+.PageHire-freelancers-item .points div:nth-child(3){
+    background-color: aqua
+}
+.PageHire-freelancers-item .points div:nth-child(4){
+    background-color: chartreuse
+}
+
+
+.PageHire-freelancers-item .points div .number{
+    display: block;
+    font-size: 1.4em;
+}
+
+.PageHire-freelancers-item .points div .number .small{
+    font-size: 0.6em;
+}
+
+
+.PageHire-freelancers-item .points div .text{
+    font-weight: bolder;
+    font-size: 1em;
+}
+.PageHire-freelancers-item .points div .number,
+.PageHire-freelancers-item .points div .text{
+    font-family: sans-serif;
+}
+
+
+
+
+
+
+
+
+
+.cd-label{
+    font-family: sans-serif;
+        font-size: 1.4rem;
+    margin-bottom: 10px;
+    display: block;
+            padding-left: 15px;
+    padding-top: 10px;
+}
+
+
+
+#cd-location{
+	    display: block;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

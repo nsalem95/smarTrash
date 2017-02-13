@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SmarTrash :: Login</title>
+
+    <link rel="stylesheet" type="text/css" href="style/bootstrap.css"><!-- Bootstrap Core CSS file -->
+    <link rel="stylesheet" type="text/css" href="style/animate.css"><!-- Animate CSS -->
+    <link rel="stylesheet" type="text/css" href="style/header.css"><!-- Shared CSS file -->
+    <link rel="stylesheet" type="text/css" href="style/fonts.css" ><!-- Font CSS file -->
+    <link rel="stylesheet" href="style/login.css"><!-- Resource style -->
+</head>
+
+<body>
+    <!-- Page Border -->
+    <div class="topLine animated"></div>
+    <div class="rightLine animated"></div>
+    <div class="bottomLine animated"></div>
+    <div class="leftLine animated"></div>
+    <!-- End of Page Border -->
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <form action="https://smart-trash.mybluemix.net/login" method="post" class="cd-form floating-labels delay-500ms animated zoomIn">
+            <fieldset>
+                <center>
+                    <legend>Smar<span>Trash</span></legend>
+                    <p>Recycle Smart</p>
+                </center>
+                <div class="icon">
+                    <label class="cd-label" for="cd-email">Email</label>
+                    <input class="email" type="email" name="email" id="cd-email" required>
+                </div>
+                <div class="icon">
+                    <label class="cd-label" for="cd-password">Password</label>
+                    <input class="password" type="password" name="password" id="cd-password" required>
+                </div>
+                <center>
+                    <div>
+                        <input onclick="window.location.href='home.html'" type="submit" value="Login">
+                    </div>
+                </center>
+                <div>
+                    <a class="forget" href="#">Forget password?</a>
+                </div>
+            </fieldset>
+        </form>
+    </header>
+</body>
+    <script src="script/modernizr.custom.04022.js"></script>
+    <script src="script/new2/jquery-2.1.1.js"></script>
+    <script src="script/new2/main.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+</html>

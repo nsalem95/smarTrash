@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>SmarTrash</title>
+
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+	<!-- Bootstrap Core CSS file -->
+	<link rel="stylesheet" type="text/css" href="style/animate.css">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" type="text/css" href="style/header.css">
+	<!-- Shared CSS file -->
+	<link rel="stylesheet" type="text/css" href="style/fonts.css">
+	<!-- Font CSS file -->
+	<link rel="stylesheet" href="style/signup.css">
+	<!-- Resource style -->
+</head>
+
+<body>
+	<!-- Page Border -->
+	<div class="topLine animated"></div>
+	<div class="rightLine animated"></div>
+	<div class="bottomLine animated"></div>
+	<div class="leftLine animated"></div>
+	<!-- End of Page Border -->
+
+	<!-- Header -->
+	<header id="top" class="header">
+		<form action="https://smart-trash.mybluemix.net/register" method="POST" class="cd-form floating-labels animated zoomIn">
+			<fieldset>
+				<center>
+					<legend>Smar<span>Trash</span></legend>
+					<p>Recycle Smart</p>
+				</center>
+				<div class="error-message">
+					<p>Please enter your Personal Information</p>
+				</div>
+
+				<div class="icon">
+					<label class="cd-label" for="cd-name">Name</label>
+					<input class="user" type="text" name="name" id="cd-name" required>
+				</div>
+				<div class="icon">
+					<label class="cd-label" for="cd-email">Email</label>
+					<input class="email" type="email" name="email" id="cd-email" required>
+				</div>
+				<div class="icon">
+					<label class="cd-label" for="cd-password">Password</label>
+					<input class="password" type="password" name="password" id="cd-password" required>
+				</div>
+
+				<div class="icon">
+					<label class="cd-label" for="cd-password">Your Location</label>
+					<select name="location" id="cd-location" required>
+	  					<option>6th October</option>
+						<option>El-Mohandessen</option>
+						<option>Fayoum</option>
+						<option>Dokki</option>
+						<option>El-Mokattam</option>
+						<option>Fifth Settlement</option>
+					</select>
+				</div>
+
+				<center>
+					<div>
+						<input type="submit" value="Submit">
+					</div>
+				</center>
+			</fieldset>
+		</form>
+	</header>
+
+
+	<script src="script/modernizr.js"></script>
+	<!-- Modernizr -->
+	<script src="script/jquery-2.1.1.js"></script>
+	<script src="script/main.js"></script>
+	<!-- Resource jQuery -->
+	<script src="script/modernizr.custom.04022.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script>
+		// Closes the sidebarnu
+		$("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+
+		// Opens the sidebar menu
+		$("#menu-toggle").click(functie) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+
+		// Scrolls to the selected menu item on the page
+		$(function() {
+			$('a[h*=#]:not([href=#])').click(function() {
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html,body').animate({
+							scrollTop: target.offset().top
+						}, 1000);
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

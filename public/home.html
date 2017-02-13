@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SmartTrash</title>
+    
+    <link rel="stylesheet" type="text/css" href="style/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="style/bootstrap.css"><!-- Bootstrap Core CSS file -->
+    <link rel="stylesheet" type="text/css" href="style/animate.css"><!-- Animate CSS -->
+    <link rel="stylesheet" type="text/css" href="style/header.css"><!-- Shared CSS file -->
+    <link rel="stylesheet" type="text/css" href="style/fonts.css" ><!-- Font CSS file -->
+    <link rel="stylesheet" href="style/home.css"><!-- Resource style -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).on('change', '.div-toggle', function() {
+  var target = $(this).data('target');
+  var show = $("option:selected", this).data('show');
+  $(target).children().addClass('hide');
+  $(show).removeClass('hide');
+});
+$(document).ready(function(){
+	$('.div-toggle').trigger('change');
+});
+	</script>
+	<style>.hide {
+  display: none;
+}</style>
+</head>
+
+<body>
+    <!-- Page Border -->
+    <div class="topLine animated"></div>
+    <div class="rightLine animated"></div>
+    <div class="bottomLine animated"></div>
+    <div class="leftLine animated"></div>
+    <!-- End of Page Border -->
+    
+    <!-- User Information 
+    <a href="#" class="user-info">
+        <img src="img/profileImage.png">
+        <span class="user-name">Cristiano Ronaldo</span>
+    </a>-->
+    
+    
+    <!-- Right Navbar -->
+    <!-- Menu Icon Start -->
+    <a href="#" id="menu-toggle" class="menu-icon animated zoomIn">
+    	<i class="fa fa-user" aria-hidden="true"></i>
+        <!--<span class="bar bar-1 delay-500ms animated fadeInRight"></span>
+        <span class="bar bar-2 delay-1000ms animated fadeInRight"></span>
+        <span class="bar bar-3 delay-1500ms animated fadeInRight"></span>-->
+    </a>
+    <!-- Side Navbar -->
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <!--<div class="info">
+                <img src="img/profileImage.png">
+                <span>Mahmoud Ali Tarkhan</span>
+            </div>-->
+            <a id="menu-close" href="#" class="toggle">
+                <span class="menu-close-line menu-close-line-1"></span>
+                <span class="menu-close-line menu-close-line-2"></span>
+            </a>
+
+            <li class="first">
+                <span class="num">User Name:</span>
+                <label><%= name %></label>
+            </li>
+            
+            <li>
+                <span class="num">Email:</span>
+                <label><%= email %></label>
+            </li>
+            <li>
+                <span class="num">Location:</span>
+                <label><%= location %></label>
+            </li>
+            
+            <li>
+                <span class="num">Your Points:</span>
+                <label class="points" style="    padding: 25px;
+    text-align: center;
+    font-size: 2em;"><%= points %><span class="price" style="color: green;"> Points</span></label>
+            </li>
+            
+            <a href="#" style="float: left;
+    margin-left: 15px; color:green; ">Edit Profile
+            <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="https://smart-trash.mybluemix.net/logout" style=" color:green;   float: right;
+    margin-right: 15px;">Logout
+            <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </ul>
+    </nav>
+    
+
+    
+    <!-- Header -->
+    <header id="top" class="header">
+        <h1 class="animated flipInX">Smar<span>Trash</span></h1>
+        <p class="animated flipInX" style="letter-spacing: 3px;
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;">Recycle Smart</p>
+        
+        <div class="container">
+            <!-- Jobs Section -->
+            <div class="PageHire-topFreelancers delay-500ms animated zoomIn">
+                
+                <ul class="PageHire-freelancers">
+                    <li class="PageHire-freelancers-item col-lg-12 filteration">
+                        <div class="item col-lg-12">
+                            <div class="icon" style="width: 100%;">
+					           <label class="cd-label" for="cd-password">Filter:</label>
+                                <select name="cd-location" class="col-lg-12 div-toggle" data-target=".info" id="cd-location" required>
+                                    <option value="All" data-show=".All">All</option>
+                                    <option value="6th-October" data-show=".6th-October">6th-October</option>
+                                    <option value="El-Mohandessen" data-show=".El-Mohandessen">El-Mohandessen</option>
+                                    <option value="Fayoum" data-show=".Fayoum">Fayoum</option>
+                                    <option value="Dokki" data-show=".Dokki">Dokki</option>
+                                    <option value="El-Mokattam" data-show=".El-Mokattam">El-Mokattam</option>
+                                    <option value="Fifth-Settlement" data-show=".Fifth-Settlement">Fifth-Settlement</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <div class="info">
+                    <!-------------------------------------------------------------------->
+                    <% for(var i=0; i<cans.length; i++) { %>
+                    <li class=<%- '"PageHire-freelancers-item col-lg-12 All '+cans[i].location+'"' %>>
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a target="_blank" href=<%- '"'+cans[i].locationurl+'"' %>><%= cans[i].Address %>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span><%= cans[i].company %></span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number"><%= cans[i].metalpoints %><span class="small">/1Kg</span></span>
+                                    <span class="text">METALS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number"><%= cans[i].paperpoints %><span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number"><%= cans[i].plasticpoints %><span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <% } %>
+                    </div>
+                    <!-----------------------------------------------------------------------------
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+                    <li class="PageHire-freelancers-item col-lg-12">
+       
+                        <div class="item col-lg-12">
+                            <div class="item-title col-lg-5">
+                                <span>Location</span>
+                                <a href="#">1st industrial Zone Obour - Area 16
+                                <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="company col-lg-3">
+                                <span>Company</span>
+                                <span>INA Quality Cleaners</span>
+                            </div>
+                           	<div class="points col-lg-4">
+                                <div class="col-lg-3">
+                                    <span class="text" style="    vertical-align: text-top;">Company<br>Points:</span>
+                           		</div>
+                           		<div class="col-lg-3">
+                                    <span class="number">50<span class="small">/1Kg</span></span>
+                                    <span class="text">CLASS</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">20<span class="small">/1Kg</span></span>
+                                    <span class="text">PAPER</span>
+                           		</div>
+                                <div class="col-lg-3">
+                                    <span class="number">35<span class="small">/1Kg</span></span>
+                                    <span class="text">PLASTIC</span>
+                           		</div>
+                                
+                           	</div>
+                        </div>
+                       
+                    </li>
+              -->
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+   
+
+    
+    <script src="scripts/jquery.js"></script><!-- jQuery -->
+    <script src="scripts/bootstrap.min.js"></script><!-- Bootstrap Core JavaScript -->
+
+    <script>
+    // Custom Theme JavaScript
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+
+
+
+
+    $('sidebar-nav a').hover(function(e) {
+        $('sidebar-nav a').removeClass('num').addClass('edit');
+    });
+    </script>
+</body>
+
+</html>
